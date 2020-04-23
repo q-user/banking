@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  web:
+    build: .
+    image: python:3.8-alpine
+    container_name: web
+    restart: unless-stopped
+
+    command: /bin/sh -c "sh /app_files/entrypoint.sh && python /app/manage.py runserver 0.0.0.0:8000"
+
+    ports:
+      - 80:8000
+    volumes:
+      - ./src:/app/
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "1"
