@@ -71,7 +71,7 @@ target/
 
 
 .idea
-/*.sqlite3
+**/*.sqlite3
 /documents/access.md
 /deploy/access.py
 
